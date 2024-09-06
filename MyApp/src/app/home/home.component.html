@@ -1,0 +1,21 @@
+<p>home works!
+    {{title}} and {{subTitle}}
+</p>
+
+<h2>Binding two way !</h2>
+<<input [(ngModel)]="brand.name" placeholder="Enter brand name">
+
+<!-- Button to find the brand -->
+<button (click)="findBrand()">Find Brand</button>
+
+<!-- Display brand details -->
+<div *ngIf="selectedBrand.name !== 'Not Found'">
+  <div>Name: {{ selectedBrand.name }}</div>
+  <div>Status: {{ selectedBrand.status }}</div>
+  <div>RAM: {{ selectedBrand.ram }}</div>
+</div>
+
+<!-- Display message if brand is not found -->
+<div *ngIf="selectedBrand.name === 'Not Found'">
+  Brand not found.
+</div>
