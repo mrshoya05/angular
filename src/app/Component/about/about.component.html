@@ -1,1 +1,8 @@
 <p>about works!</p>
+@for(user of users; track user.name){
+<p>
+    salary {{user.salary}}
+    name {{user.name}}
+    status {{user.status ? "single" : "coder"}}
+</p>
+}

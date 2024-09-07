@@ -1,1 +1,49 @@
 <p>contact works!</p>
+<h1>{{input}}</h1>
+
+<!-- <input type="text" [value]="input"  (input)="onChange($event)"> -->
+<h1>second</h1>
+
+<input type="text" [(ngModel)]="input">
+
+
+<div>
+
+    @for(user of users; track user.name){
+        @if(user.salary > 10000){
+            <h4>Name- {{user.name}} status- {{user.isSingle ? "single" : "coder"}} - {{user.salary}}</h4>
+        }
+        @else {
+            <h4>Name- {{user.name}} status- {{user.isSingle ? "single" : "coder"}} salary - hidden</h4>
+        }
+    }
+</div>
+<hr/>
+<hr>
+
+<!-- data -->
+
+<div *ngFor="let user of users"> 
+    <h4 *ngIf="user.salary > 10000 else elseBlock">
+   name: {{user.name}}
+   salary: {{user.salary}}
+    </h4>
+    
+    <ng-template #elseBlock>
+  <h4>
+    name : {{user.name}}
+    slary: low
+  </h4>
+    </ng-template>
+</div>
+
+<hr>
+
+<div *ngFor="let user of users">
+    <h4 *ngIf="user.salary > 10000; else elseBlock">Name- {{user.name}} status- {{user.isSingle ? "single" : "coder"}} - {{user.salary}}</h4>
+<ng-template #elseBlock>
+    <h4>Name- {{user.name}} status- {{user.isSingle ? "single" : "coder"}} salary : low</h4>
+
+</ng-template>
+
+</div>
